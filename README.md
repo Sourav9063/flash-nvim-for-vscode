@@ -50,7 +50,7 @@
 
      ![flash enter](https://github.com/user-attachments/assets/e2f932e3-73c6-4acd-9d8c-9937bb116821)
 
-   - Press `alt+j` or `alt+k` to mark all the next line or previous line.
+   - Press `alt+f` then `alt+j` or `alt+k` to mark all the next line or previous line.
      | Next Line | Previous Line |
      | :--------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------: |
      | ![Screenshot (178)](https://github.com/user-attachments/assets/9281233c-2021-4a4a-9a8b-e5e0bdfa350c) | ![Screenshot (176)](https://github.com/user-attachments/assets/ef55f28b-3560-4884-a131-b2ac04ec9453) |
