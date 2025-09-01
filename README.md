@@ -1,4 +1,4 @@
-# Flash VSCode
+# flash.nvim for VSCode
 
 ## Table of Contents
 
@@ -17,7 +17,7 @@
 
 ## Overview
 
-**flash.vscode(latest)** flash vscode is the easiest way to have the best plugin of Neovim, [flash.nvim](https://github.com/folke/flash.nvim) in Visual Studio Code. Works with [VScodeWeb](https://vscode.dev)
+**flash.nvim for vscode** is the easiest way to have the best plugin of Neovim, [flash.nvim](https://github.com/folke/flash.nvim) in Visual Studio Code. Works with [VScodeWeb](https://vscode.dev)
 
 **You Don't Need To Know VIM to Use Flash VSCode**
 
@@ -50,7 +50,7 @@
 
      ![flash enter](https://github.com/user-attachments/assets/e2f932e3-73c6-4acd-9d8c-9937bb116821)
 
-   - Press `alt+j` or `alt+k` to mark all the next line or previous line.
+   - Press `alt+f` then `alt+j` or `alt+k` to mark all the next line or previous line.
      | Next Line | Previous Line |
      | :--------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------: |
      | ![Screenshot (178)](https://github.com/user-attachments/assets/9281233c-2021-4a4a-9a8b-e5e0bdfa350c) | ![Screenshot (176)](https://github.com/user-attachments/assets/ef55f28b-3560-4884-a131-b2ac04ec9453) |
@@ -61,7 +61,13 @@
 
      ![flash select](https://github.com/user-attachments/assets/e3a12392-3ab5-4ff7-a657-f28c4b09da2d)
 
-3. **Cancel Navigation:**
+3. **Preview**
+   - Added a preview in status bar.
+     
+     <img width="380" height="231" alt="image" src="https://github.com/user-attachments/assets/61c93756-6323-47f1-acbe-d92ba961601b" />
+
+
+4. **Cancel Navigation:**
    - Press `Backspace` to remove the last character of your query, or press `Escape` to exit jump mode.
 
 ## Configuration
