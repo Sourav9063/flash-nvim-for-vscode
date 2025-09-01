@@ -2,7 +2,7 @@
 
 ## Table of Contents
 
-- [Flash VSCode](#flash-vscode)
+- [flash.nvim for VSCode](#flashnvim-for-vscode)
   - [Table of Contents](#table-of-contents)
   - [Overview](#overview)
   - [Installation](#installation)
@@ -17,7 +17,7 @@
 
 ## Overview
 
-**flash.nvim for vscode** is the easiest way to have the best plugin of Neovim, [flash.nvim](https://github.com/folke/flash.nvim) in Visual Studio Code. Works with [VScodeWeb](https://vscode.dev)
+**flash.nvim for vscode**, previously known as **flash.vscode**, is the easiest way to have the best plugin of Neovim, [flash.nvim](https://github.com/folke/flash.nvim) in Visual Studio Code. Works with [VScodeWeb](https://vscode.dev)
 
 **You Don't Need To Know VIM to Use Flash VSCode**
 
