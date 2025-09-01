@@ -1,4 +1,4 @@
-# Flash VSCode
+# flash.nvim for VSCode
 
 ## Table of Contents
 
@@ -17,7 +17,7 @@
 
 ## Overview
 
-**flash.vscode(latest)** flash vscode is the easiest way to have the best plugin of Neovim, [flash.nvim](https://github.com/folke/flash.nvim) in Visual Studio Code. Works with [VScodeWeb](https://vscode.dev)
+**flash.nvim for vscode** is the easiest way to have the best plugin of Neovim, [flash.nvim](https://github.com/folke/flash.nvim) in Visual Studio Code. Works with [VScodeWeb](https://vscode.dev)
 
 **You Don't Need To Know VIM to Use Flash VSCode**
 
@@ -61,7 +61,13 @@
 
      ![flash select](https://github.com/user-attachments/assets/e3a12392-3ab5-4ff7-a657-f28c4b09da2d)
 
-3. **Cancel Navigation:**
+3. **Preview**
+   - Added a preview in status bar.
+     
+     <img width="380" height="231" alt="image" src="https://github.com/user-attachments/assets/61c93756-6323-47f1-acbe-d92ba961601b" />
+
+
+4. **Cancel Navigation:**
    - Press `Backspace` to remove the last character of your query, or press `Escape` to exit jump mode.
 
 ## Configuration
