@@ -49,14 +49,11 @@ export function activate(context: vscode.ExtensionContext) {
 			opacity: dimOpacity
 		});
 		matchDecoration = vscode.window.createTextEditorDecorationType({
+			color: `${matchColor} !important`,
 			opacity: '1 !important',
-			color: '#00000000', // Make the actual text transparent
-			before: {
-				color: matchColor,
-				fontWeight: matchFontWeight,
-				backgroundColor: `${matchColor}aa`,
-				textDecoration: `none; z-index: 10; position: absolute;`,
-			}
+			backgroundColor: `${matchColor}70 !important`,
+			fontWeight: matchFontWeight,
+			textDecoration: `none; z-index: 10; color: ${matchColor} !important;`,
 		});
 		labelDecoration = vscode.window.createTextEditorDecorationType({
 			opacity: '1 !important',
@@ -198,8 +195,8 @@ export function activate(context: vscode.ExtensionContext) {
 				continue;
 			}
 			const isActiveEditor = editor === vscode.window.activeTextEditor;
+			editor.setDecorations(dimDecoration, editor.visibleRanges);
 			if (searchQuery.length === 0) {
-				editor.setDecorations(dimDecoration, editor.visibleRanges);
 				editor.setDecorations(labelDecoration, []);
 				editor.setDecorations(labelDecorationQuestion, []);
 				if (isMode(flashVscodeModes.active, flashVscodeModes.selection)) {
@@ -327,8 +324,7 @@ export function activate(context: vscode.ExtensionContext) {
 		for (const editor of visibleEditors) {
 			const decorationOptions: vscode.DecorationOptions[] = [];
 			const questionDecorationOptions: vscode.DecorationOptions[] = [];
-			const matchDecorationOption: vscode.DecorationOptions[] = [];
-			const labelPositions: vscode.Position[] = [];
+			editor.setDecorations(matchDecoration, allMatches.filter(m => m.editor === editor).map(m => m.range));
 			// set the character before the match to the label character
 			const isActiveEditor = editor === activeEditor;
 			for (const match of allMatches) {
@@ -349,27 +345,8 @@ export function activate(context: vscode.ExtensionContext) {
 				const labelRange = match.range;
 				let char = labelCharsToUse[ charCounter ];
 				charCounter++;
-
-				// Add match decoration if there's a search query and match has content
-				if (searchQuery.length > 0 && labelRange.end.character > labelRange.start.character + 1) {
-					const overlayText = searchQuery.substring(1); // Everything except first character
-
-					matchDecorationOption.push({
-						range: new vscode.Range(
-							labelRange.start.line,
-							labelRange.start.character + 1,
-							labelRange.end.line,
-							labelRange.end.character
-						),
-						renderOptions: {
-							before: { contentText: overlayText }
-						}
-					});
-				}
-
 				if (char !== '?') {
 					labelMap.set(char, { editor: editor, position: match.matchStart });
-				labelPositions.push(match.matchStart);
 					decorationOptions.push({
 						range: new vscode.Range(labelRange.start.line, labelRange.start.character, labelRange.start.line, labelRange.start.character + 1),
 						renderOptions: {
@@ -378,7 +355,6 @@ export function activate(context: vscode.ExtensionContext) {
 					});
 				}
 				else {
-					labelPositions.push(match.matchStart);
 					questionDecorationOptions.push({
 						range: new vscode.Range(labelRange.start.line, labelRange.start.character, labelRange.start.line, labelRange.start.character + 1),
 						renderOptions: {
@@ -387,36 +363,8 @@ export function activate(context: vscode.ExtensionContext) {
 					});
 				}
 			}
-
-			// Create dim ranges excluding label positions
-			const dimRanges: vscode.Range[] = [];
-			for (const visibleRange of editor.visibleRanges) {
-				let currentPos = visibleRange.start;
-
-				// Sort label positions for this editor by line and character
-				const sortedLabels = labelPositions
-					.filter(pos => pos.line >= visibleRange.start.line && pos.line <= visibleRange.end.line)
-					.sort((a, b) => a.line === b.line ? a.character - b.character : a.line - b.line);
-
-				for (const labelPos of sortedLabels) {
-					// Add dim range from current position to label position
-					if (currentPos.isBefore(labelPos)) {
-						dimRanges.push(new vscode.Range(currentPos, labelPos));
-					}
-					// Skip the label character
-					currentPos = new vscode.Position(labelPos.line, labelPos.character + 1);
-				}
-
-				// Add remaining range after last label
-				if (currentPos.isBefore(visibleRange.end)) {
-					dimRanges.push(new vscode.Range(currentPos, visibleRange.end));
-				}
-			}
-
-			editor.setDecorations(dimDecoration, dimRanges);
 			editor.setDecorations(labelDecoration, decorationOptions);
 			editor.setDecorations(labelDecorationQuestion, questionDecorationOptions);
-			editor.setDecorations(matchDecoration, matchDecorationOption);
 
 			if (isMode(flashVscodeModes.selection)) {
 				break;
