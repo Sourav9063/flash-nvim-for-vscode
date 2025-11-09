@@ -369,7 +369,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 				if (char !== '?') {
 					labelMap.set(char, { editor: editor, position: match.matchStart });
-				labelPositions.push(match.matchStart);
+					labelPositions.push(match.matchStart);
 					decorationOptions.push({
 						range: new vscode.Range(labelRange.start.line, labelRange.start.character, labelRange.start.line, labelRange.start.character + 1),
 						renderOptions: {
