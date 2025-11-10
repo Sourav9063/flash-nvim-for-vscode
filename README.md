@@ -1,6 +1,6 @@
 # flash.nvim for VSCode
 
-**The Official flash.nvim Extension for Visual Studio Code** - Fast, precise, label-based code navigation inspired by Neovim's flash.nvim plugin.
+**The Unofficial flash.nvim Extension for Visual Studio Code** - Fast, precise, label-based code navigation inspired by Neovim's flash.nvim plugin.
 
 [![Version](https://img.shields.io/visual-studio-marketplace/v/souravahmed.flash-vscode-latest?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=souravahmed.flash-vscode-latest)
 [![Installs](https://img.shields.io/visual-studio-marketplace/i/souravahmed.flash-vscode-latest?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=souravahmed.flash-vscode-latest)
@@ -11,7 +11,10 @@
 - [flash.nvim for VSCode](#flashnvim-for-vscode)
   - [Table of Contents](#table-of-contents)
   - [Overview](#overview)
+    - [Why Choose flash.nvim for VSCode?](#why-choose-flashnvim-for-vscode)
+    - [Perfect Alternative To](#perfect-alternative-to)
   - [Installation](#installation)
+    - [Install from VS Code Marketplace](#install-from-vs-code-marketplace)
   - [Usage](#usage)
     - [Tutorial](#tutorial)
   - [Configuration](#configuration)
@@ -19,7 +22,7 @@
     - [Appearance Customization](#appearance-customization)
     - [VSCodeVim Integration (Optional)](#vscodevim-integration-optional)
   - [Acknowledgements](#acknowledgements)
-  - [Keywords](#keywords)
+  - [Keywords \& Search Terms](#keywords--search-terms)
 
 ## Overview
 
