@@ -15,3 +15,4 @@ CLAUDE.md
 .git/**
 .gitignore
 *.vsix
+.github/**
