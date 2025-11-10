@@ -1,11 +1,20 @@
 # flash.nvim for VSCode
 
+**The Unofficial flash.nvim Extension for Visual Studio Code** - Fast, precise, label-based code navigation inspired by Neovim's flash.nvim plugin.
+
+[![Version](https://img.shields.io/visual-studio-marketplace/v/souravahmed.flash-vscode-latest?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=souravahmed.flash-vscode-latest)
+[![Installs](https://img.shields.io/visual-studio-marketplace/i/souravahmed.flash-vscode-latest?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=souravahmed.flash-vscode-latest)
+[![Rating](https://img.shields.io/visual-studio-marketplace/r/souravahmed.flash-vscode-latest?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=souravahmed.flash-vscode-latest)
+
 ## Table of Contents
 
 - [flash.nvim for VSCode](#flashnvim-for-vscode)
   - [Table of Contents](#table-of-contents)
   - [Overview](#overview)
+    - [Why Choose flash.nvim for VSCode?](#why-choose-flashnvim-for-vscode)
+    - [Perfect Alternative To](#perfect-alternative-to)
   - [Installation](#installation)
+    - [Install from VS Code Marketplace](#install-from-vs-code-marketplace)
   - [Usage](#usage)
     - [Tutorial](#tutorial)
   - [Configuration](#configuration)
@@ -13,21 +22,46 @@
     - [Appearance Customization](#appearance-customization)
     - [VSCodeVim Integration (Optional)](#vscodevim-integration-optional)
   - [Acknowledgements](#acknowledgements)
-  - [Keywords](#keywords)
+  - [Keywords \& Search Terms](#keywords--search-terms)
 
 ## Overview
 
-**flash.nvim for vscode**, previously known as **flash.vscode**, is the easiest way to have the best plugin of Neovim, [flash.nvim](https://github.com/folke/flash.nvim) in Visual Studio Code. Works with [VScodeWeb](https://vscode.dev)
+**flash.nvim for VSCode** brings the power of Neovim's most popular navigation plugin, [flash.nvim](https://github.com/folke/flash.nvim), to Visual Studio Code. This extension provides lightning-fast, label-based code navigation that lets you jump to any visible location with just 2-3 keystrokes.
 
-**You Don't Need To Know VIM to Use Flash VSCode**
+### Why Choose flash.nvim for VSCode?
+
+- **⚡ Lightning Fast**: Jump anywhere on screen in milliseconds
+- **🎯 Precise Navigation**: Label-based system eliminates guesswork
+- **🌐 Universal**: Works with [vscode.dev](https://vscode.dev) (VS Code for Web)
+- **👥 For Everyone**: **No Vim knowledge required** - great for all developers
+- **🔥 Battle-Tested**: Based on Neovim's most loved navigation plugin
+- **🎨 Highly Customizable**: Adjust colors, labels, and behavior to your preference
+
+### Perfect Alternative To
+
+Looking for alternatives to **EasyMotion**, **Jumpy**, **Jumpy2**, or **AceJump**? flash.nvim for VSCode offers superior performance and a more intuitive label system, making it the best choice for fast code navigation in VS Code.
 
 ## Installation
 
-1. Open Visual Studio Code.
-2. Go to the Extensions view (`Ctrl+Shift+X` on Windows/Linux or `Cmd+Shift+X` on macOS).
-3. Search for **Flash VSCode**.
-4. Click **Install**.
-5. Reload VS Code if prompted.
+### Install from VS Code Marketplace
+
+**Method 1: Direct Install** (Recommended)
+1. [Click here to install flash.nvim for VSCode](https://marketplace.visualstudio.com/items?itemName=souravahmed.flash-vscode-latest) directly from the VS Code Marketplace
+2. Click the "Install" button
+3. VS Code will open and install the extension automatically
+
+**Method 2: Install from VS Code**
+1. Open Visual Studio Code
+2. Go to the Extensions view (`Ctrl+Shift+X` on Windows/Linux or `Cmd+Shift+X` on macOS)
+3. Search for **"flash.nvim for vscode"** or **"flash vscode"**
+4. Look for the extension by **souravahmed**
+5. Click **Install**
+6. Reload VS Code if prompted
+
+**Method 3: Command Line**
+```bash
+code --install-extension souravahmed.flash-vscode-latest
+```
 
 ## Usage
 
@@ -138,13 +172,10 @@ This configuration triggers Flash VSCode when you press `s` or `S` in normal mod
 - [flash.vscode](https://github.com/cunbidun/flash.vscode) flash.vscode(latest) extension is supper set of this extension.
 - [CVim-PR](https://github.com/VSCodeVim/Vim/issues/8567) [CVim](https://github.com/cuixiaorui/vscodeVim/tree/flash) for ux improvement ideas.
  
-## Keywords
-- flash.nvim
-- flash.vscode
-- flash vscode
-- flash-vscode
-- flash
-- nvim
-- neovim 
-- jumpy
-- easymotion
+## Keywords & Search Terms
+
+**Popular Searches**: flash.nvim, flash nvim, flash.nvim vscode, flash nvim vscode, flash vscode, flash.vscode, neovim, nvim, vim navigation, vscode navigation, code jump, label jump, easymotion alternative, jumpy alternative, acejump alternative, quick navigation, cursor jump, code navigation extension, vscode jump to, fast navigation, keyboard navigation, vim motions, vscodevim extension, neovim vscode, vim for vscode
+
+**Related Extensions**: VSCodeVim, EasyMotion, Jumpy, Jumpy2, AceJump, Vim, Neovim
+
+**Use Cases**: code navigation, quick jump, label-based navigation, keyboard-driven development, productivity tools, vim workflow, neovim workflow, fast coding, efficient navigation

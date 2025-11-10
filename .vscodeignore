@@ -10,3 +10,9 @@ vsc-extension-quickstart.md
 **/*.ts
 **/.vscode-test.*
 node_modules/**
+out/test/**
+CLAUDE.md
+.git/**
+.gitignore
+*.vsix
+.github/**

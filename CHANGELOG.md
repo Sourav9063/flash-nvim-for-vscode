@@ -2,8 +2,27 @@
 
 All notable changes to the "flash-vscode" extension will be documented in this file.
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+## [0.3.31] - 2025-01-10
 
-## [Unreleased]
+### Fixed
+- Fixed space rendering in match highlights by converting spaces to non-breaking spaces (`\u00A0`)
 
-- Initial release
+### Changed
+- Switched from TypeScript compiler (tsc) to esbuild for faster builds and smaller bundle size
+- Reduced extension package size from 19 KB to 12 KB (36% reduction)
+- Optimized extension.js from 27 KB to 8 KB through minification
+
+### Improved
+- Enhanced SEO optimization for VS Code Marketplace
+- Updated README with better installation instructions and feature highlights
+- Improved package.json keywords for better discoverability
+- Compressed CLAUDE.md documentation for better maintainability
+
+## [0.3.2] - Previous Release
+
+- Initial stable release
+- Label-based code navigation
+- Multi-editor support
+- Symbol and line navigation modes
+- Smart case-sensitive search
+- VSCodeVim integration

@@ -1,25 +1,36 @@
 {
   "name": "flash-vscode-latest",
   "displayName": "flash.nvim for vscode",
-  "description": "The easiest way to have the best plugin of Neovim, flash.nvim, in Visual Studio Code, bringing fast, label-based code navigation.",
+  "description": "flash.nvim for VSCode - Fast, label-based code navigation inspired by Neovim's flash.nvim. Jump anywhere with 2 keystrokes. Alternative to EasyMotion and Jumpy. Perfect for vim users and non-vim users alike.",
   "icon": "images/flash.vscode128.png",
-  "version": "0.3.1",
+  "version": "0.3.31",
   "engines": {
     "vscode": "^1.96.0"
   },
   "categories": [
-    "Other",
-    "Keymaps"
+    "Keymaps",
+    "Other"
   ],
   "keywords": [
+    "flash.nvim",
+    "flash nvim",
+    "flash.nvim vscode",
+    "flash nvim vscode",
+    "flash vscode",
+    "flash-vscode",
+    "nvim",
+    "neovim",
     "vim",
     "vi",
     "vscodevim",
-    "flash",
-    "flash.nvim",
-    "flash vscode",
-    "nvim",
-    "neovim"
+    "easymotion",
+    "jumpy",
+    "navigation",
+    "jump",
+    "code navigation",
+    "quick jump",
+    "label jump",
+    "cursor movement"
   ],
   "extensionKind": [
     "ui"
@@ -649,9 +660,10 @@
     ]
   },
   "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
+    "vscode:prepublish": "npm run esbuild-base -- --minify",
+    "compile": "npm run esbuild-base -- --sourcemap",
+    "watch": "npm run esbuild-base -- --sourcemap --watch",
+    "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/extension.js --external:vscode --format=cjs --platform=node",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src",
     "test": "vscode-test"
@@ -664,6 +676,7 @@
     "@typescript-eslint/parser": "^8.22.0",
     "@vscode/test-cli": "^0.0.10",
     "@vscode/test-electron": "^2.4.1",
+    "esbuild": "^0.27.0",
     "eslint": "^9.19.0",
     "typescript": "^5.7.3"
   },
