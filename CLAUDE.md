@@ -36,7 +36,7 @@ Mode-based system (`flashVscodeMode`): `idle`, `active`, `selection`, `lineUp`, 
 - `labelDecoration`/`labelDecorationQuestion`: Jump labels via `before` decorations
 
 ### Navigation Modes
-- **Symbol** (`ctrl+enter`): Uses `vscode.executeDocumentSymbolProvider`, recursively labels via `itrSymbol()`
+- **Symbol** (`alt+enter`): Uses `vscode.executeDocumentSymbolProvider`, recursively labels via `itrSymbol()`
 - **Line** (`alt+j`/`alt+k`): Labels sequential lines from cursor
 - **Enter/Shift+Enter**: Cycles matches by position (`relativeDis` = `line * 1000 + character`), throttled at 70ms
 

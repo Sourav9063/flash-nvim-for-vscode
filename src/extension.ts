@@ -568,6 +568,14 @@ export function activate(context: vscode.ExtensionContext) {
 		searchQuery = '';
 		updateHighlights();
 	};
+
+	const handleSymbol = () => {
+		_start();
+		updateFlashVscodeMode(flashVscodeModes.symbol);
+		searchQuery = '';
+		updateHighlights();
+	};
+
 	const handleInput = (chr: string) => {
 		if (chr === 'space') {
 			chr = ' ';
@@ -580,7 +588,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 		switch (chr) {
 			case flashVscodeModes.symbol:
-				updateFlashVscodeMode(flashVscodeModes.symbol);
+				handleSymbol();
 				return;
 			case flashVscodeModes.lineUp:
 				handleLine(flashVscodeModes.lineUp);
