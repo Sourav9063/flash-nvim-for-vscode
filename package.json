@@ -3,7 +3,7 @@
   "displayName": "flash.nvim for vscode",
   "description": "flash.nvim for VSCode - Fast, label-based code navigation inspired by Neovim's flash.nvim. Jump anywhere with 2 keystrokes. Alternative to EasyMotion and Jumpy. Perfect for vim users and non-vim users alike.",
   "icon": "images/flash.vscode128.png",
-  "version": "0.3.31",
+  "version": "0.3.32",
   "engines": {
     "vscode": "^1.96.0"
   },
@@ -134,6 +134,14 @@
       {
         "command": "flash-vscode.jump.lineUp",
         "title": "flash-vscode: Labels All Previous Lines"
+      },
+      {
+        "command": "flash-vscode.jump.symbol",
+        "title": "flash-vscode: Jump to Symbol"
+      },
+      {
+        "command": "flash-vscode.jump.symbolSelection",
+        "title": "flash-vscode: Jump to Symbol with Selection"
       }
     ],
     "keybindings": [
@@ -178,8 +186,13 @@
         "when": "flash-vscode-mode != 'idle' && editorTextFocus"
       },
       {
-        "key": "ctrl+enter",
+        "key": "alt+enter",
         "command": "flash-vscode.jump.symbol",
+        "when": "flash-vscode.active && editorTextFocus"
+      },
+      {
+        "key": "shift+alt+enter",
+        "command": "flash-vscode.jump.symbolSelection",
         "when": "flash-vscode.active && editorTextFocus"
       },
       {
