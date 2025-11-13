@@ -93,6 +93,11 @@ code --install-extension souravahmed.flash-vscode-latest
      | ![Screenshot (178)](https://github.com/user-attachments/assets/9281233c-2021-4a4a-9a8b-e5e0bdfa350c) | ![Screenshot (176)](https://github.com/user-attachments/assets/ef55f28b-3560-4884-a131-b2ac04ec9453) |
 
 2. **🚀 Smart Symbol & Treesitter Selection - Game Changer for Daily Coding:**
+   
+[Treesitter Selection](https://github.com/user-attachments/assets/5b5e6205-204a-4a52-ad81-fbb328094156)
+
+<img width="624" height="767" alt="Screenshot 2025-11-13 at 2 11 14 PM" src="https://github.com/user-attachments/assets/b317f631-e20a-4948-90b2-bd88cdfb55ef" />
+<img width="624" height="767" alt="Screenshot 2025-11-13 at 2 11 31 PM" src="https://github.com/user-attachments/assets/b63c4987-9d73-4995-914a-4b6ceddbdfd6" />
 
    **Dramatically reduce the friction of selecting, cutting, and copying code.** No more tedious click-dragging, Shift+Arrow key combos, or hunting for scope boundaries!
 
@@ -116,7 +121,7 @@ code --install-extension souravahmed.flash-vscode-latest
    - Refactoring nested code? Jump between scope boundaries instantly ✅
    - **Turns 10+ keystrokes into 2-3 keystrokes** for common selection tasks
 
-3. **Selection:**
+4. **Selection:**
 
    - **`flash-vscode.startSelection`**: `alt+shift+f` Extends the selection from the original position to the target.
 
