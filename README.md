@@ -96,8 +96,9 @@ code --install-extension souravahmed.flash-vscode-latest
    
 [Treesitter Selection](https://github.com/user-attachments/assets/5b5e6205-204a-4a52-ad81-fbb328094156)
 
-<img width="624" height="767" alt="Screenshot 2025-11-13 at 2 11 14 PM" src="https://github.com/user-attachments/assets/b317f631-e20a-4948-90b2-bd88cdfb55ef" />
-<img width="624" height="767" alt="Screenshot 2025-11-13 at 2 11 31 PM" src="https://github.com/user-attachments/assets/b63c4987-9d73-4995-914a-4b6ceddbdfd6" />
+| Treesitter Label | Treesitter Selection |
+| :--------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------: |
+| <img width="624" alt="Screenshot 2025-11-13 at 2 11 14 PM" src="https://github.com/user-attachments/assets/b317f631-e20a-4948-90b2-bd88cdfb55ef" /> | <img width="624" alt="Screenshot 2025-11-13 at 2 11 31 PM" src="https://github.com/user-attachments/assets/b63c4987-9d73-4995-914a-4b6ceddbdfd6" /> |
 
    **Dramatically reduce the friction of selecting, cutting, and copying code.** No more tedious click-dragging, Shift+Arrow key combos, or hunting for scope boundaries!
 
