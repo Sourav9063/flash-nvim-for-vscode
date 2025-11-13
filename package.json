@@ -134,6 +134,14 @@
       {
         "command": "flash-vscode.jump.lineUp",
         "title": "flash-vscode: Labels All Previous Lines"
+      },
+      {
+        "command": "flash-vscode.jump.symbol",
+        "title": "flash-vscode: Jump to Symbol"
+      },
+      {
+        "command": "flash-vscode.jump.symbolSelection",
+        "title": "flash-vscode: Jump to Symbol with Selection"
       }
     ],
     "keybindings": [
@@ -180,6 +188,11 @@
       {
         "key": "alt+enter",
         "command": "flash-vscode.jump.symbol",
+        "when": "flash-vscode.active && editorTextFocus"
+      },
+      {
+        "key": "shift+alt+enter",
+        "command": "flash-vscode.jump.symbolSelection",
         "when": "flash-vscode.active && editorTextFocus"
       },
       {

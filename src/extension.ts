@@ -121,8 +121,8 @@ export function activate(context: vscode.ExtensionContext) {
 	let symbols: vscode.DocumentSymbol[] = [];
 	let isSelection = false;
 
-	// Map of label character to target position
-	let labelMap: Map<string, { editor: vscode.TextEditor, position: vscode.Position }> = new Map();
+	// Map of label character to target position and optional full range for selection
+	let labelMap: Map<string, { editor: vscode.TextEditor, position: vscode.Position, range?: vscode.Range }> = new Map();
 
 	interface LocationInfo { editor: vscode.TextEditor, range: vscode.Range, matchStart: vscode.Position, relativeDis: number }
 	let allMatches: LocationInfo[] = [];
@@ -164,6 +164,54 @@ export function activate(context: vscode.ExtensionContext) {
 
 	function relativeVsCodePosition(pos: vscode.Position) {
 		return pos.line * 1000 + pos.character;
+	}
+
+	// Get treesitter-style selection ranges using LSP selection range provider
+	async function getSelectionRanges(editor: vscode.TextEditor, position: vscode.Position) {
+		const document = editor.document;
+		try {
+			const selectionRanges = await vscode.commands.executeCommand<vscode.SelectionRange[]>(
+				'vscode.executeSelectionRangeProvider',
+				document.uri,
+				[position]
+			);
+
+			if (selectionRanges && selectionRanges.length > 0) {
+				// Flatten the hierarchy of selection ranges
+				const ranges: vscode.Range[] = [];
+				let current: vscode.SelectionRange | undefined = selectionRanges[0];
+
+				while (current) {
+					ranges.push(current.range);
+					current = current.parent;
+				}
+
+				// Add both start and end positions of each range as separate labels
+				// This gives us boundary markers like flash.nvim's treesitter selection
+				for (const range of ranges) {
+					// Add start position label
+					allMatches.push({
+						editor,
+						range,
+						matchStart: range.start,
+						relativeDis: relativeVsCodePosition(range.start)
+					});
+
+					// Add end position label (only if different from start)
+					if (!range.start.isEqual(range.end)) {
+						allMatches.push({
+							editor,
+							range,
+							matchStart: range.end,
+							relativeDis: relativeVsCodePosition(range.end)
+						});
+					}
+				}
+			}
+		} catch (error) {
+			// Fallback to document symbols if selection range provider is not available
+			await getOutlineRangesForVisibleEditors(editor);
+		}
 	}
 
 	// Example usage: Call this function to get outline ranges for all visible editors
@@ -210,7 +258,14 @@ export function activate(context: vscode.ExtensionContext) {
 
 			if (isMode(flashVscodeModes.symbol)) {
 				try {
-					await getOutlineRangesForVisibleEditors(editor);
+					// If started in selection mode, use treesitter-style selection ranges
+					if (isSelection) {
+						const cursorPos = editor.selection.active;
+						await getSelectionRanges(editor, cursorPos);
+					} else {
+						// Otherwise, show all document symbols
+						await getOutlineRangesForVisibleEditors(editor);
+					}
 				} catch (error) {
 				}
 			}
@@ -369,7 +424,8 @@ export function activate(context: vscode.ExtensionContext) {
 				}
 
 				if (char !== '?') {
-					labelMap.set(char, { editor: editor, position: match.matchStart });
+					// Store the full range for treesitter-style selection
+					labelMap.set(char, { editor: editor, position: match.matchStart, range: match.range });
 					labelPositions.push(match.matchStart);
 					decorationOptions.push({
 						range: new vscode.Range(labelRange.start.line, labelRange.start.character, labelRange.start.line, labelRange.start.character + 1),
@@ -482,15 +538,25 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 	});
 
-	const jump = (target: { editor: vscode.TextEditor, position: vscode.Position }, scroll: boolean = false) => {
+	const jump = (target: { editor: vscode.TextEditor, position: vscode.Position, range?: vscode.Range }, scroll: boolean = false) => {
 		const targetEditor = target.editor;
 		const targetPos = target.position;
-		const isForward = targetEditor.selection.anchor.isBefore(targetPos);
 
-		const selectFrom = isSelection || isMode(flashVscodeModes.selection) ? isForward ? targetEditor.selection.start : targetEditor.selection.end : targetPos;
-		const selectTo = isSelection || isMode(flashVscodeModes.selection) ? new vscode.Position(targetPos.line, targetPos.character + (isForward ? 1 : 0)) : targetPos;
-		targetEditor.selection = new vscode.Selection(selectFrom, selectTo);
-		targetEditor.revealRange(new vscode.Range(targetPos, targetPos), scroll ? vscode.TextEditorRevealType.InCenter : vscode.TextEditorRevealType.Default);
+		// If a range is provided (treesitter/symbol mode), select the full range
+		// This gives us scope-based selection like flash.nvim's treesitter feature
+		if (target.range && isMode(flashVscodeModes.symbol)) {
+			// Select the entire scope range (e.g., function () {} selects from f to })
+			targetEditor.selection = new vscode.Selection(target.range.start, target.range.end);
+			targetEditor.revealRange(target.range, scroll ? vscode.TextEditorRevealType.InCenter : vscode.TextEditorRevealType.Default);
+		} else {
+			// Normal selection behavior
+			const isForward = targetEditor.selection.anchor.isBefore(targetPos);
+			const selectFrom = isSelection || isMode(flashVscodeModes.selection) ? isForward ? targetEditor.selection.start : targetEditor.selection.end : targetPos;
+			const selectTo = isSelection || isMode(flashVscodeModes.selection) ? new vscode.Position(targetPos.line, targetPos.character + (isForward ? 1 : 0)) : targetPos;
+			targetEditor.selection = new vscode.Selection(selectFrom, selectTo);
+			targetEditor.revealRange(new vscode.Range(targetPos, targetPos), scroll ? vscode.TextEditorRevealType.InCenter : vscode.TextEditorRevealType.Default);
+		}
+
 		// If the target is in a different editor, focus that editor
 		if (vscode.window.activeTextEditor !== targetEditor) {
 			vscode.window.showTextDocument(targetEditor.document, targetEditor.viewColumn);
@@ -548,7 +614,7 @@ export function activate(context: vscode.ExtensionContext) {
 			}
 			target = allMatchSortByRelativeDis[ nextMatchIndex! ];
 			if (target) {
-				jump({ editor: target.editor, position: target.matchStart }, true);
+				jump({ editor: target.editor, position: target.matchStart, range: target.range }, true);
 				updateHighlights();
 			}
 		}
@@ -576,6 +642,15 @@ export function activate(context: vscode.ExtensionContext) {
 		updateHighlights();
 	};
 
+	const handleSymbolSelection = () => {
+		_start();
+		updateFlashVscodeMode(flashVscodeModes.symbol);
+		// Set selection flag to trigger treesitter-style selection
+		isSelection = true;
+		searchQuery = '';
+		updateHighlights();
+	};
+
 	const handleInput = (chr: string) => {
 		if (chr === 'space') {
 			chr = ' ';
@@ -589,6 +664,9 @@ export function activate(context: vscode.ExtensionContext) {
 		switch (chr) {
 			case flashVscodeModes.symbol:
 				handleSymbol();
+				return;
+			case 'symbolSelection':
+				handleSymbolSelection();
 				return;
 			case flashVscodeModes.lineUp:
 				handleLine(flashVscodeModes.lineUp);
@@ -631,7 +709,7 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 	});
 
-	let allChars = searchChars.split('').concat([ 'space', ...Object.values(flashVscodeModes) ]);
+	let allChars = searchChars.split('').concat([ 'space', 'symbolSelection', ...Object.values(flashVscodeModes) ]);
 	context.subscriptions.push(configChangeListener, start, startSelection, exit, backspaceHandler, visChange,
 		...allChars.map(c => vscode.commands.registerCommand(`flash-vscode.jump.${c}`, () => handleInput(c)))
 	);

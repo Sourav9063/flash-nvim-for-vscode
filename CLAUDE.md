@@ -36,7 +36,9 @@ Mode-based system (`flashVscodeMode`): `idle`, `active`, `selection`, `lineUp`, 
 - `labelDecoration`/`labelDecorationQuestion`: Jump labels via `before` decorations
 
 ### Navigation Modes
-- **Symbol** (`alt+enter`): Uses `vscode.executeDocumentSymbolProvider`, recursively labels via `itrSymbol()`
+- **Symbol** (`alt+enter` or `shift+alt+enter`):
+  - Normal mode (`alt+enter`): Uses `vscode.executeDocumentSymbolProvider`, recursively labels all symbols via `itrSymbol()`
+  - Treesitter selection (`shift+alt+enter` from any active mode): Uses `vscode.executeSelectionRangeProvider` - labels hierarchical syntactic scopes (expression, statement, block, function, etc.) from cursor position, marks both start and end boundaries for smart selection
 - **Line** (`alt+j`/`alt+k`): Labels sequential lines from cursor
 - **Enter/Shift+Enter**: Cycles matches by position (`relativeDis` = `line * 1000 + character`), throttled at 70ms
 
