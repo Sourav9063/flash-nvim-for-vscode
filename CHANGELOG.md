@@ -2,10 +2,14 @@
 
 All notable changes to the "flash-vscode" extension will be documented in this file.
 
-## [0.4.1] - 2025-11-16
+## [0.4.11] - 2025-11-16
 
 ### Added
-- Added public video URL
+- Added public video URL with embedded video players in README
+
+### Changed
+- Replaced markdown video links with HTML5 video tags for better viewing experience
+- Excluded assets folder from extension package to reduce bundle size
 
 ## [0.4.0] - 2025-01-15
 
