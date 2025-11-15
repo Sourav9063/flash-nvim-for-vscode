@@ -2,6 +2,25 @@
 
 All notable changes to the "flash-vscode" extension will be documented in this file.
 
+## [0.4.0] - 2025-01-15
+
+### Changed
+- **Rebranded to "Flash Nvim for VSCode"** - Improved branding with proper capitalization
+- Removed dot notation from display name for better Google search visibility
+- Updated extension name from "flash.nvim for vscode" to "Flash Nvim for VSCode"
+
+### Improved
+- **Major SEO optimization** for better discoverability in Google search and VS Code Marketplace
+- Reorganized keywords with priority order: "flash nvim for vscode" now ranks #1
+- Updated description to front-load most important keywords
+- Enhanced README.md with consistent branding throughout
+- Optimized for both web search engines and VS Code Marketplace search
+
+### Marketing
+- Better positioning to compete with similar extensions (EasyMotion, Jumpy, AceJump)
+- Clearer branding that doesn't require special character handling in search engines
+- Maintained connection to original flash.nvim plugin while broadening appeal
+
 ## [0.3.31] - 2025-01-10
 
 ### Fixed

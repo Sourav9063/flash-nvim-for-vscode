@@ -55,7 +55,7 @@ jobs:
           tag_name: v${{ steps.package_version.outputs.VERSION }}
           name: Release v${{ steps.package_version.outputs.VERSION }}
           body: |
-            ## flash.nvim for VSCode v${{ steps.package_version.outputs.VERSION }}
+            ## Flash Nvim for VSCode v${{ steps.package_version.outputs.VERSION }}
 
             ### Installation
             Download the `.vsix` file below and install it in VS Code:
