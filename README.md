@@ -1,6 +1,6 @@
-# flash.nvim for VSCode
+# Flash Nvim for VSCode
 
-**The Unofficial flash.nvim Extension for Visual Studio Code** - Fast, precise, label-based code navigation inspired by Neovim's flash.nvim plugin.
+**Flash Nvim for VSCode** - Fast, precise, label-based code navigation inspired by Neovim's [flash.nvim](https://github.com/folke/flash.nvim) plugin. The most popular Neovim navigation plugin, now available for Visual Studio Code.
 
 [![Version](https://img.shields.io/visual-studio-marketplace/v/souravahmed.flash-vscode-latest?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=souravahmed.flash-vscode-latest)
 [![Installs](https://img.shields.io/visual-studio-marketplace/i/souravahmed.flash-vscode-latest?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=souravahmed.flash-vscode-latest)
@@ -8,10 +8,10 @@
 
 ## Table of Contents
 
-- [flash.nvim for VSCode](#flashnvim-for-vscode)
+- [Flash Nvim for VSCode](#flash-nvim-for-vscode)
   - [Table of Contents](#table-of-contents)
   - [Overview](#overview)
-    - [Why Choose flash.nvim for VSCode?](#why-choose-flashnvim-for-vscode)
+    - [Why Choose Flash Nvim for VSCode?](#why-choose-flash-nvim-for-vscode)
     - [Perfect Alternative To](#perfect-alternative-to)
   - [Installation](#installation)
     - [Install from VS Code Marketplace](#install-from-vs-code-marketplace)
@@ -27,9 +27,9 @@
 
 ## Overview
 
-**flash.nvim for VSCode** brings the power of Neovim's most popular navigation plugin, [flash.nvim](https://github.com/folke/flash.nvim), to Visual Studio Code. This extension provides lightning-fast, label-based code navigation that lets you jump to any visible location with just 2-3 keystrokes.
+**Flash Nvim for VSCode** brings the power of Neovim's most popular navigation plugin, [flash.nvim](https://github.com/folke/flash.nvim), to Visual Studio Code. This extension provides lightning-fast, label-based code navigation that lets you jump to any visible location with just 2-3 keystrokes.
 
-### Why Choose flash.nvim for VSCode?
+### Why Choose Flash Nvim for VSCode?
 
 - **⚡ Lightning Fast**: Jump anywhere on screen in milliseconds
 - **🎯 Precise Navigation**: Label-based system eliminates guesswork
@@ -41,21 +41,21 @@
 
 ### Perfect Alternative To
 
-Looking for alternatives to **EasyMotion**, **Jumpy**, **Jumpy2**, or **AceJump**? flash.nvim for VSCode offers superior performance and a more intuitive label system, making it the best choice for fast code navigation in VS Code.
+Looking for alternatives to **EasyMotion**, **Jumpy**, **Jumpy2**, or **AceJump**? **Flash Nvim for VSCode** offers superior performance and a more intuitive label system, making it the best choice for fast code navigation in VS Code.
 
 ## Installation
 
 ### Install from VS Code Marketplace
 
 **Method 1: Direct Install** (Recommended)
-1. [Click here to install flash.nvim for VSCode](https://marketplace.visualstudio.com/items?itemName=souravahmed.flash-vscode-latest) directly from the VS Code Marketplace
+1. [Click here to install Flash Nvim for VSCode](https://marketplace.visualstudio.com/items?itemName=souravahmed.flash-vscode-latest) directly from the VS Code Marketplace
 2. Click the "Install" button
 3. VS Code will open and install the extension automatically
 
 **Method 2: Install from VS Code**
 1. Open Visual Studio Code
 2. Go to the Extensions view (`Ctrl+Shift+X` on Windows/Linux or `Cmd+Shift+X` on macOS)
-3. Search for **"flash.nvim for vscode"** or **"flash vscode"**
+3. Search for **"flash nvim for vscode"** or **"flash vscode"**
 4. Look for the extension by **souravahmed**
 5. Click **Install**
 6. Reload VS Code if prompted
