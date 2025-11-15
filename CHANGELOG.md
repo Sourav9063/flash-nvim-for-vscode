@@ -2,6 +2,11 @@
 
 All notable changes to the "flash-vscode" extension will be documented in this file.
 
+## [0.4.1] - 2025-11-16
+
+### Added
+- Added public video URL
+
 ## [0.4.0] - 2025-01-15
 
 ### Changed
