@@ -3,7 +3,7 @@
   "displayName": "Flash Nvim for VSCode",
   "description": "Flash Nvim for VSCode - Lightning-fast label-based navigation inspired by Neovim's flash.nvim plugin. Jump anywhere with 2-3 keystrokes. Best alternative to EasyMotion, Jumpy, and AceJump.",
   "icon": "images/flash.vscode128.png",
-  "version": "0.4.1",
+  "version": "0.4.11",
   "engines": {
     "vscode": "^1.96.0"
   },

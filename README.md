@@ -70,6 +70,10 @@ code --install-extension souravahmed.flash-vscode-latest
 
 [Tutorial Video](https://github.com/Sourav9063/flash-nvim-for-vscode/raw/refs/heads/main/assets/444379853-b4660aa8-dd2d-4c9f-9622-c01521747a76.mp4)
 
+<video controls muted>
+  <source src="https://github.com/Sourav9063/flash-nvim-for-vscode/raw/refs/heads/main/assets/444379853-b4660aa8-dd2d-4c9f-9622-c01521747a76.mp4" type="video/mp4"/>
+</video>
+
 1. **Activate Navigation:**
    Flash VSCode provides two main functionalities:
 
@@ -92,8 +96,12 @@ code --install-extension souravahmed.flash-vscode-latest
      | ![Screenshot (178)](https://github.com/user-attachments/assets/9281233c-2021-4a4a-9a8b-e5e0bdfa350c) | ![Screenshot (176)](https://github.com/user-attachments/assets/ef55f28b-3560-4884-a131-b2ac04ec9453) |
 
 2. **🚀 Smart Symbol & Treesitter Selection - Game Changer for Daily Coding:**
-   
+
 [Treesitter Selection](https://github.com/Sourav9063/flash-nvim-for-vscode/raw/refs/heads/main/assets/513752343-5b5e6205-204a-4a52-ad81-fbb328094156.mov)
+
+<video controls muted>
+  <source src="https://github.com/Sourav9063/flash-nvim-for-vscode/raw/refs/heads/main/assets/513752343-5b5e6205-204a-4a52-ad81-fbb328094156.mov" type="video/mp4"/>
+</video>
 
 | Treesitter Label | Treesitter Selection |
 | :--------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------: |
