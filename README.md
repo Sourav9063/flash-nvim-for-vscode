@@ -17,7 +17,6 @@
     - [Install from VS Code Marketplace](#install-from-vs-code-marketplace)
   - [Usage](#usage)
     - [Tutorial](#tutorial)
-    - [Smart Symbol & Treesitter Selection](#-smart-symbol--treesitter-selection---game-changer-for-daily-coding)
   - [Configuration](#configuration)
     - [Case Sensitivity](#case-sensitivity)
     - [Appearance Customization](#appearance-customization)
@@ -69,7 +68,7 @@ code --install-extension souravahmed.flash-vscode-latest
 
 ### Tutorial
 
-[Tutorial Video](https://github.com/user-attachments/assets/b4660aa8-dd2d-4c9f-9622-c01521747a76)
+[Tutorial Video](https://github.com/Sourav9063/flash-nvim-for-vscode/raw/refs/heads/main/assets/444379853-b4660aa8-dd2d-4c9f-9622-c01521747a76.mp4)
 
 1. **Activate Navigation:**
    Flash VSCode provides two main functionalities:
@@ -94,7 +93,7 @@ code --install-extension souravahmed.flash-vscode-latest
 
 2. **🚀 Smart Symbol & Treesitter Selection - Game Changer for Daily Coding:**
    
-[Treesitter Selection](https://github.com/user-attachments/assets/5b5e6205-204a-4a52-ad81-fbb328094156)
+[Treesitter Selection](https://github.com/Sourav9063/flash-nvim-for-vscode/raw/refs/heads/main/assets/513752343-5b5e6205-204a-4a52-ad81-fbb328094156.mov)
 
 | Treesitter Label | Treesitter Selection |
 | :--------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------: |
