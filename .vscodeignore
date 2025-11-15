@@ -16,3 +16,4 @@ CLAUDE.md
 .gitignore
 *.vsix
 .github/**
+assets/**
