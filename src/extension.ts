@@ -173,13 +173,13 @@ export function activate(context: vscode.ExtensionContext) {
 			const selectionRanges = await vscode.commands.executeCommand<vscode.SelectionRange[]>(
 				'vscode.executeSelectionRangeProvider',
 				document.uri,
-				[position]
+				[ position ]
 			);
 
 			if (selectionRanges && selectionRanges.length > 0) {
 				// Flatten the hierarchy of selection ranges
 				const ranges: vscode.Range[] = [];
-				let current: vscode.SelectionRange | undefined = selectionRanges[0];
+				let current: vscode.SelectionRange | undefined = selectionRanges[ 0 ];
 
 				while (current) {
 					ranges.push(current.range);
@@ -348,12 +348,13 @@ export function activate(context: vscode.ExtensionContext) {
 				const distanceB = getDistance(cursorPos, b.matchStart) * weight_b;
 				return distanceA - distanceB;
 			});
-			if (allMatches.length > 0) {
-				const label = allMatches[ 0 ];
-				if (getDistance(cursorPos, label.matchStart) === distanceOffset) {
-					allMatches.shift();
-				}
-			}
+			// Remove if the match is the under cursor  
+			// if (allMatches.length > 0) {
+			// 	const label = allMatches[ 0 ];
+			// 	if (getDistance(cursorPos, label.matchStart) === distanceOffset) {
+			// 		allMatches.shift();
+			// 	}
+			// }
 
 		}
 
@@ -408,7 +409,7 @@ export function activate(context: vscode.ExtensionContext) {
 				// Add match decoration if there's a search query and match has content
 				if (searchQuery.length > 0 && labelRange.end.character > labelRange.start.character + 1) {
 					// Replace spaces with non-breaking spaces so they render visibly
-			const overlayText = searchQuery.substring(1).replace(/ /g, '\u00A0'); // Everything except first character
+					const overlayText = searchQuery.substring(1).replace(/ /g, '\u00A0'); // Everything except first character
 
 					matchDecorationOption.push({
 						range: new vscode.Range(
@@ -627,6 +628,32 @@ export function activate(context: vscode.ExtensionContext) {
 	const throttledHandleEnterOrShiftEnter = throttle(handleEnterOrShiftEnter, 70);
 	// const throttledHandleEnterOrShiftEnter250 = throttle(handleEnterOrShiftEnter, 250);
 
+	// Auto-scroll to matches if all matches are outside visible range
+	const autoScrollToMatchIfNeeded = () => {
+		const activeEditor = vscode.window.activeTextEditor;
+		let isVisible = true;
+		if (activeEditor && allMatches.length > 0) {
+			// Since allMatches is sorted with active editor matches first,
+			// check if the first match is from active editor and if it's visible
+			const firstMatch = allMatches[ 0 ];
+
+			if (firstMatch.editor === activeEditor) {
+				isVisible = activeEditor.visibleRanges.some(visibleRange =>
+					firstMatch.matchStart.line >= visibleRange.start.line &&
+					firstMatch.matchStart.line <= visibleRange.end.line
+				);
+			}
+
+		}
+
+		if (!isVisible) {
+			jump({ editor: allMatches[ 0 ].editor, position: allMatches[ 0 ].matchStart }, true)
+			// Reset navigation state so manual enter/shift+enter starts fresh
+			allMatchSortByRelativeDis = undefined;
+			nextMatchIndex = undefined;
+		}
+	};
+
 	// Override the 'type' command to capture alphanumeric/symbol keys while in nav mode
 	const handleLine = (direction: string) => {
 		_start();
@@ -690,6 +717,9 @@ export function activate(context: vscode.ExtensionContext) {
 				// Append typed character to the search query
 				searchQuery += text;
 				// throttledHandleEnterOrShiftEnter250();
+
+				// Auto-scroll to matches if all matches are outside visible range
+				autoScrollToMatchIfNeeded();
 				updateHighlights();
 		}
 

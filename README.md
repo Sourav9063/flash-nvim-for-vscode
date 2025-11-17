@@ -6,10 +6,10 @@
 [![Installs](https://img.shields.io/visual-studio-marketplace/i/souravahmed.flash-vscode-latest?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=souravahmed.flash-vscode-latest)
 [![Rating](https://img.shields.io/visual-studio-marketplace/r/souravahmed.flash-vscode-latest?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=souravahmed.flash-vscode-latest)
 
-## Table of Contents
+## Table of Contents activate
 
 - [Flash Nvim for VSCode](#flash-nvim-for-vscode)
-  - [Table of Contents](#table-of-contents)
+  - [Table of Contents activate](#table-of-contents-activate)
   - [Overview](#overview)
     - [Why Choose Flash Nvim for VSCode?](#why-choose-flash-nvim-for-vscode)
     - [Perfect Alternative To](#perfect-alternative-to)
@@ -32,6 +32,7 @@
 
 - **⚡ Lightning Fast**: Jump anywhere on screen in milliseconds
 - **🎯 Precise Navigation**: Label-based system eliminates guesswork
+- **🔍 Smart Auto-Scroll**: Automatically scrolls to matches when they're outside the visible range
 - **🧠 Smart Symbol & Treesitter Selection**: Instantly select entire functions, blocks, or scopes - turns 10+ keystrokes into 2-3 for daily copy/cut/refactor tasks
 - **🌐 Universal**: Works with [vscode.dev](https://vscode.dev) (VS Code for Web)
 - **👥 For Everyone**: **No Vim knowledge required** - great for all developers
@@ -83,6 +84,7 @@ code --install-extension souravahmed.flash-vscode-latest
      ![flash jump](https://github.com/user-attachments/assets/9a416efd-0927-4df8-b1f1-81d1582f328c)
 
    - Press `alt+f` or `alt+shift+f` then `<search>` then `enter` to goto next match, `shift+enter` to goto previous match.
+   - **Auto-scroll**: If all matches are outside the visible range, Flash automatically scrolls to show the nearest match - no manual scrolling needed!
    - Press `alt+f` or `alt+shift+f` then `enter` to search previously entered query.
    - Select text and press `alt+f` or `alt+shift+f` then `enter` to search and mark the selected text.
    - Press `alt+f` then `alt+enter` to mark all symbols (functions, classes, variables) in the current file.
