@@ -2,6 +2,20 @@
 
 All notable changes to the "flash-vscode" extension will be documented in this file.
 
+## [0.4.21] - 2025-11-18
+
+### Added
+- **Auto-scroll to next match**: Automatically scrolls to the nearest match if all matches are outside the visible range in the current editor
+- Improved search experience with intelligent viewport navigation
+
+### Fixed
+- Fixed bug where matches under the cursor were not being labeled and highlighted
+- Improved navigation state management after auto-scroll to prevent missing jumps
+
+### Changed
+- Refactored auto-scroll logic into a separate function for better code maintainability
+- Optimized match visibility checking for better performance
+
 ## [0.4.11] - 2025-11-16
 
 ### Added
