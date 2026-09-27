@@ -3,7 +3,7 @@
   "displayName": "Flash Nvim for VSCode",
   "description": "Flash Nvim for VSCode - Lightning-fast label-based navigation. Inspired by Neovim but built for everyone—absolutely NO Vim knowledge required. Jump anywhere in 2-3 keystrokes. Best alternative to EasyMotion, Jumpy, and AceJump.",
   "icon": "images/flash.vscode128.png",
-  "version": "0.5.5",
+  "version": "0.5.6",
   "engines": {
     "vscode": "^1.96.0"
   },
@@ -53,7 +53,9 @@
   "bugs": {
     "url": "https://github.com/Sourav9063/flash.vscode/issues"
   },
-  "activationEvents": [],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "galleryBanner": {
     "color": "#010409",
     "theme": "dark"

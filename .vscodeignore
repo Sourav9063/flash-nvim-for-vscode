@@ -17,3 +17,7 @@ CLAUDE.md
 *.vsix
 .github/**
 assets/**
+.claude
+.agents
+.playwright*
+.DS_Store
