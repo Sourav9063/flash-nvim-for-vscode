@@ -3,3 +3,7 @@ dist
 node_modules
 .vscode-test/
 *.vsix
+.claude
+.agents
+.playwright*
+.DS_Store
